@@ -49,7 +49,7 @@ const VietQrForm = () => {
     }
 
     return <Layout style={layoutStyle} className="flex flex-row">
-        <Content style={contentStyle} className="container mx-auto flex justify-center items-center">
+        <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto">
             <Form form={form}
                 name="qrCode"
                 layout="vertical"
@@ -59,54 +59,42 @@ const VietQrForm = () => {
                     allowAmount: false,
                     amount: ''
                 }}
-                autoComplete="off">
-                <Card style={{ width: "100%" }}>
-                    <Row gutter={[16, 16]}>
-                        <Col span={12}>
-                            <Row className="p-2">
-                                <Col span={24}>
-                                    <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
-                                        <Select options={bankList} showSearch filterOption={filterOption} />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={24}>
-                                    <Form.Item label="Bank Account" name="bankAccount" rules={[{ required: true }]}>
-                                        <Input type="input" placeholder="Input your bank account here!!!" />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={24}>
-                                    <Form.Item label="Full name" name="fullName" rules={[{ required: true }]}>
-                                        <Input placeholder="Input your full name" />
-                                    </Form.Item>
-                                </Col>
+                autoComplete="off"
+                className='sm:w-auto sm:h-auto w-full h-full'
+            >
+                <Card>
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2">
+                        <div className="sm:min-w-96 sm:max-w-96 w-full">
+                            <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
+                                <Select options={bankList} showSearch filterOption={filterOption} />
+                            </Form.Item>
+                            <Form.Item label="Bank Account" name="bankAccount" rules={[{ required: true }]}>
+                                <Input type="input" placeholder="Input your bank account here!!!" />
+                            </Form.Item>
+                            <Form.Item label="Full name" name="fullName" rules={[{ required: true }]}>
+                                <Input placeholder="Input your full name" />
+                            </Form.Item>
+                            <Form.Item label="Allow input amount" name="allowAmount">
+                                <Switch onChange={onChange} size="small" />
+                            </Form.Item>
+                            {allowAmount && <>
+                                <Form.Item label="Amount" name="amount">
+                                    <InputNumber
+                                        placeholder="Input your amount here!!!"
+                                        prefix="đ" suffix="VND"
+                                        style={{ width: '100%' }} />
+                                </Form.Item>
+                                <Form.Item label="Description" name="description">
+                                    <TextArea
+                                        placeholder="Input your description here!!!"
+                                        autoSize={{ minRows: 2, maxRows: 6, maxLength: 99 }}
+                                    />
+                                </Form.Item>
 
-                                <Col span={24}>
-                                    <Form.Item label="Allow input amount" name="allowAmount">
-                                        <Switch onChange={onChange} size="small" />
-                                    </Form.Item>
-                                </Col>
+                            </>}
+                        </div>
 
-                                {allowAmount && <>
-                                    <Col span={24} className="mb-1">
-                                        <Form.Item label="Amount" name="amount">
-                                            <InputNumber
-                                                placeholder="Input your amount here!!!"
-                                                prefix="đ" suffix="VND"
-                                                style={{ width: '100%' }} />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col span={24}>
-                                        <Form.Item label="Description" name="description">
-                                            <TextArea
-                                                placeholder="Input your description here!!!"
-                                                autoSize={{ minRows: 2, maxRows: 6, maxLength: 99 }}
-                                            />
-                                        </Form.Item>
-                                    </Col></>}
-                            </Row>
-
-                        </Col>
-                        <Col span={12}>
+                        <div className="sm:min-w-96 sm:max-w-96 w-full">
                             <VietQrCode
                                 bankAccount={bankAccount}
                                 descriptionWithAmount={descriptionWithAmount}
@@ -118,8 +106,8 @@ const VietQrForm = () => {
                                 allowAmount={allowAmount}
                                 bankCode={bankDetail.bankCode}
                             ></VietQrCode>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </Card>
             </Form>
         </Content>
