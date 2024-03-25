@@ -62,7 +62,7 @@ const VietQrForm = () => {
                 autoComplete="off"
                 className='sm:w-auto sm:h-auto w-full h-full'
             >
-                <Card>
+                <Card className='min-w-full min-h-full'>
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2">
                         <div className="sm:min-w-96 sm:max-w-96 w-full">
                             <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
