@@ -76,7 +76,7 @@ const VietQrForm = () => {
         html2canvas(qrCodeRef.current).then((canvas) => {
             const qrDownload = document.createElement("a");
             const currentDate = new Date().getTime();
-            qrDownload.download = `timo-vietqr-code-${currentDate}.png`;
+            qrDownload.download = `huulnt-vietqr-code-${currentDate}.png`;
             qrDownload.href = canvas.toDataURL("image/png");
             qrDownload.target = "_blank";
             qrDownload.click();
