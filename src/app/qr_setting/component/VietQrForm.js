@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import {
-    Card, Col, Form, Input, InputNumber, Row, Select, Switch
+    Card, Col, Form, Input, InputNumber, Row, Select, Switch,
+    Button
 } from 'antd';
 
 import { bankList } from './../helper/qr_setting_helper'
@@ -11,6 +12,10 @@ import VietQrCode from './VietQrCode';
 import {
     Layout
 } from 'antd';
+
+import html2canvas from "html2canvas";
+import { upperCase } from 'lodash';
+
 
 const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
@@ -25,6 +30,9 @@ const layoutStyle = {
 };
 
 const VietQrForm = () => {
+    const qrCodeRef = useRef();
+
+
     const [form] = Form.useForm();
     const allowAmount = Form.useWatch("allowAmount", form);
     const bankAccount = Form.useWatch('bank', form);
@@ -32,6 +40,8 @@ const VietQrForm = () => {
     const amountWithAmount = Form.useWatch('amount', form);
     const accNumber = Form.useWatch('bankAccount', form);
     const fullName = Form.useWatch('fullName', form);
+
+
 
     const onChange = () => {
         //
@@ -47,6 +57,17 @@ const VietQrForm = () => {
     const onFinish = () => {
         //
     }
+
+    const downloadQRCode = () => {
+        html2canvas(qrCodeRef.current).then((canvas) => {
+            const qrDownload = document.createElement("a");
+
+            qrDownload.download = `QR-${upperCase(fullName) || ''}-${Date.now()}.png`;
+            qrDownload.href = canvas.toDataURL("image/png");
+            qrDownload.target = "_blank";
+            qrDownload.click();
+        });
+    };
 
     return <Layout style={layoutStyle} className="flex flex-row">
         <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto">
@@ -94,7 +115,7 @@ const VietQrForm = () => {
                             </>}
                         </div>
 
-                        <div className="sm:min-w-96 sm:max-w-96 w-full">
+                        <div className="sm:min-w-96 sm:max-w-96 w-full" ref={qrCodeRef}>
                             <VietQrCode
                                 bankAccount={bankAccount}
                                 descriptionWithAmount={descriptionWithAmount}
@@ -106,6 +127,9 @@ const VietQrForm = () => {
                                 allowAmount={allowAmount}
                                 bankCode={bankDetail.bankCode}
                             ></VietQrCode>
+                            <div className='mt-5 flex justify-center'>
+                                <Button type="primary" onClick={downloadQRCode}>Download</Button>
+                            </div>
                         </div>
                     </div>
                 </Card>
