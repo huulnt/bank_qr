@@ -85,7 +85,7 @@ const VietQrForm = () => {
     };
 
     return <Layout style={layoutStyle} className="flex flex-row">
-        <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto">
+        <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto ">
             <Form form={form}
                 name="qrCode"
                 layout="vertical"
@@ -98,9 +98,9 @@ const VietQrForm = () => {
                 autoComplete="off"
                 className='sm:w-auto sm:h-auto w-full h-full'
             >
-                <Card className='min-w-full min-h-full'>
-                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2">
-                        <div className="sm:min-w-96 sm:max-w-96 w-full">
+                <Card className='min-w-full min-h-full '>
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 md:gap-3">
+                        <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
                             <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
                                 <Select options={bankList} showSearch filterOption={filterOption} />
                             </Form.Item>
@@ -113,6 +113,7 @@ const VietQrForm = () => {
                             <Form.Item label="Allow input amount" name="allowAmount">
                                 <Switch onChange={onChange} size="small" />
                             </Form.Item>
+
                             {allowAmount && <>
                                 <Form.Item label="Amount" name="amount">
                                     <InputNumber
@@ -130,7 +131,7 @@ const VietQrForm = () => {
                             </>}
                         </div>
 
-                        <div className="sm:min-w-96 sm:max-w-96 w-full" >
+                        <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full" >
                             <div ref={qrCodeRef} className='py-10'>
                                 <VietQrCode
                                     bankAccount={bankAccount}
