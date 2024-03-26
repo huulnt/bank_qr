@@ -58,15 +58,30 @@ const VietQrForm = () => {
         //
     }
 
-    const downloadQRCode = () => {
+    const downloadQRCode = async () => {
+        // html2canvas(qrCodeRef.current, {
+        //     logging: true,
+        //     letterRendering: 1,
+        //     allowTaint: false,
+        //     useCORS: true,
+        // }).then((canvas) => {
+        //     const qrDownload = document.createElement("a");
+
+        //     qrDownload.download = `QR-${upperCase(fullName) || ''}-${Date.now()}.png`;
+        //     qrDownload.href = canvas.toDataURL("image/png");
+        //     qrDownload.target = "_blank";
+        //     qrDownload.click();
+        // });
+
         html2canvas(qrCodeRef.current).then((canvas) => {
             const qrDownload = document.createElement("a");
-
-            qrDownload.download = `QR-${upperCase(fullName) || ''}-${Date.now()}.png`;
+            const currentDate = new Date().getTime();
+            qrDownload.download = `timo-vietqr-code-${currentDate}.png`;
             qrDownload.href = canvas.toDataURL("image/png");
             qrDownload.target = "_blank";
             qrDownload.click();
         });
+
     };
 
     return <Layout style={layoutStyle} className="flex flex-row">
@@ -115,22 +130,26 @@ const VietQrForm = () => {
                             </>}
                         </div>
 
-                        <div className="sm:min-w-96 sm:max-w-96 w-full" ref={qrCodeRef}>
-                            <VietQrCode
-                                bankAccount={bankAccount}
-                                descriptionWithAmount={descriptionWithAmount}
-                                amountWithAmount={amountWithAmount}
-                                accNumber={accNumber}
-                                logo={bankDetail.logo}
-                                bankName={bankDetail.bankName}
-                                fullName={fullName}
-                                allowAmount={allowAmount}
-                                bankCode={bankDetail.bankCode}
-                            ></VietQrCode>
+                        <div className="sm:min-w-96 sm:max-w-96 w-full" >
+                            <div ref={qrCodeRef} className='py-10'>
+                                <VietQrCode
+                                    bankAccount={bankAccount}
+                                    descriptionWithAmount={descriptionWithAmount}
+                                    amountWithAmount={amountWithAmount}
+                                    accNumber={accNumber}
+                                    logo={bankDetail.logo}
+                                    bankName={bankDetail.bankName}
+                                    fullName={fullName}
+                                    allowAmount={allowAmount}
+                                    bankCode={bankDetail.bankCode}
+                                ></VietQrCode>
+                            </div>
                             <div className='mt-5 flex justify-center'>
                                 <Button type="primary" onClick={downloadQRCode}>Download</Button>
                             </div>
                         </div>
+
+
                     </div>
                 </Card>
             </Form>

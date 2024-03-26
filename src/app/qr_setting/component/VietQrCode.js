@@ -2,10 +2,12 @@
 
 import { memo, useMemo } from "react";
 import {
-    Card, QRCode, Typography
+    Card, Typography
 } from 'antd';
 import { calculationCRC, convertVietnameseCharacterToUnicode } from "../helper/qr_setting_helper";
 import { upperCase } from "lodash";
+import QRCode from "qrcode.react";
+
 
 const VIET_QR_CODE = Object.freeze({
     PAYLOAD_FORMAT_INDICATOR: "000201",
@@ -81,13 +83,17 @@ const VietQrCode = ({
 
     return <>
         <div className="flex flex-col justify-center">
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-4">
                 <QRCode
-                    errorLevel="H"
+                    renderAs="canvas"
                     value={generationQRCodeWithAmount}
-                    icon={logo}
-                    bordered={false}
                     size={200}
+                    level="H"
+                    imageSettings={{
+                        src: logo,
+                        width: 36,
+                        height: 36,
+                    }}
                 />
             </div>
             <div className="flex flex-col justify-center text-center">

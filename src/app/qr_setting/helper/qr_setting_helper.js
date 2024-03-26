@@ -11,7 +11,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "963388",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/BanViet.png",
+        logo: "/bank_icon/BanViet.png",
         value: "963388",
         label: "Timo - Powerby BVBank"
     },
@@ -27,7 +27,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "970454",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/BanViet.png",
+        logo: "/bank_icon/BanViet.png",
         value: "970454",
         label: "NH Ban Viet (BVBank)"
     },
@@ -43,7 +43,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970416",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/ACB.png",
+        logo: "/bank_icon/ACB.png",
         value: "970416",
         label: "ACB – Ngan hang A Chau"
     },
@@ -59,7 +59,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970405",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Agribank.png",
+        logo: "/bank_icon/Agribank.png",
         value: "970405",
         label: "Agribank – NH Nong Nghiep va PTNT VN"
     },
@@ -75,7 +75,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970418",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/BIDV.png",
+        logo: "/bank_icon/BIDV.png",
         value: "970418",
         label: "BIDV – NH Dau Tu va Phat Trien VN"
     },
@@ -91,7 +91,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "533948",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/CitiBank.png",
+        logo: "/bank_icon/CitiBank.png",
         value: "533948",
         label: "CitiBank Viet Nam"
     },
@@ -107,7 +107,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "970406",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/DongA.png",
+        logo: "/bank_icon/DongA.png",
         value: "970406",
         label: "DongA Bank – Ngan hang Dong A"
     },
@@ -123,7 +123,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970431",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/EximBank.png",
+        logo: "/bank_icon/EximBank.png",
         value: "970431",
         label: "Eximbank – Ngan hang Xuat nhap khau"
     },
@@ -139,7 +139,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970437",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/HDBank.png",
+        logo: "/bank_icon/HDBank.png",
         value: "970437",
         label: "HDBank - Ngan hang Phat trien TP HCM"
     },
@@ -155,7 +155,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "458761",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/HSBC.png",
+        logo: "/bank_icon/HSBC.png",
         value: "458761",
         label: "HSBC Viet Nam"
     },
@@ -171,7 +171,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970426",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/MSB.png",
+        logo: "/bank_icon/MSB.png",
         value: "970426",
         label: "MaritimeBank – Ngan hang Hang Hai"
     },
@@ -187,7 +187,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970422",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/MBBank.png",
+        logo: "/bank_icon/MBBank.png",
         value: "970422",
         label: "MBBank – Ngan hang Quan Doi"
     },
@@ -203,7 +203,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970448",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/OCB.png",
+        logo: "/bank_icon/OCB.png",
         value: "970448",
         label: "OCB - Ngan hang Phuong Dong"
     },
@@ -219,7 +219,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970403",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Sacombank.png",
+        logo: "/bank_icon/Sacombank.png",
         value: "970403",
         label: "SacomBank – Ngan hang Sai Gon Thuong Tin"
     },
@@ -235,7 +235,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970429",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/SCB.png",
+        logo: "/bank_icon/SCB.png",
         value: "970429",
         label: "SCB - Ngan hang Sai Gon"
     },
@@ -251,7 +251,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970443",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/SHB.png",
+        logo: "/bank_icon/SHB.png",
         value: "970443",
         label: "SHBank – Ngan hang Sai Gon Ha Noi"
     },
@@ -267,7 +267,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970407",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Techcombank.png",
+        logo: "/bank_icon/Techcombank.png",
         value: "970407",
         label: "Techcombank – Ngan hang Ky Thuong"
     },
@@ -283,7 +283,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970423",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/TPBank.png",
+        logo: "/bank_icon/TPBank.png",
         value: "970423",
         label: "TPBank - Ngan hang Tien Phong"
     },
@@ -299,7 +299,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970441",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VIB.png",
+        logo: "/bank_icon/VIB.png",
         value: "970441",
         label: "VIB - Ngan hang Quoc Te"
     },
@@ -315,7 +315,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970436",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Vietcombank.png",
+        logo: "/bank_icon/Vietcombank.png",
         value: "970436",
         label: "Vietcombank – Ngan hang Ngoai Thuong VN"
     },
@@ -331,7 +331,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970415",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Vietinbank.png",
+        logo: "/bank_icon/Vietinbank.png",
         value: "970415",
         label: "VietinBank – Ngan hang Cong Thuong VN"
     },
@@ -347,7 +347,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "796500",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/DBS.png",
+        logo: "/bank_icon/DBS.png",
         value: "796500",
         label: "DBS Bank Ltd – VN Branch"
     },
@@ -363,7 +363,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970442",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Hongleong.png",
+        logo: "/bank_icon/Hongleong.png",
         value: "970442",
         label: "Hong Leong Bank  – VN Branch"
     },
@@ -379,7 +379,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970434",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Indovina.png",
+        logo: "/bank_icon/Indovina.png",
         value: "970434",
         label: "Indovina Bank"
     },
@@ -395,7 +395,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970455",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/CongthuongHQ.png",
+        logo: "/bank_icon/CongthuongHQ.png",
         value: "970455",
         label: "Industrial Bank Of Korea – VN Branch"
     },
@@ -411,7 +411,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970425",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/ABBank.png",
+        logo: "/bank_icon/ABBank.png",
         value: "970425",
         label: "NH An Binh (AnbinhBank)"
     },
@@ -427,7 +427,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970409",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/BacA.png",
+        logo: "/bank_icon/BacA.png",
         value: "970409",
         label: "NH Bac A"
     },
@@ -443,7 +443,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970438",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/BaoViet.png",
+        logo: "/bank_icon/BaoViet.png",
         value: "970438",
         label: "NH Bao Viet"
     },
@@ -459,7 +459,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970449",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Lienvietpostbank.png",
+        logo: "/bank_icon/Lienvietpostbank.png",
         value: "970449",
         label: "NH Buu dien Lien Viet (PostBank)"
     },
@@ -475,7 +475,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "999888",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VPSB.png",
+        logo: "/bank_icon/VPSB.png",
         value: "999888",
         label: "NH Chinh sach Xa Hoi"
     },
@@ -491,7 +491,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970412",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/PVCombank.png",
+        logo: "/bank_icon/PVCombank.png",
         value: "970412",
         label: "NH Dai Chung"
     },
@@ -507,7 +507,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "970414",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/OceanBank.png",
+        logo: "/bank_icon/OceanBank.png",
         value: "970414",
         label: "NH Dai Duong (Ocean Bank)"
     },
@@ -523,7 +523,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "970408",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/GPBank.png",
+        logo: "/bank_icon/GPBank.png",
         value: "970408",
         label: "NH Dau khi toan cau"
     },
@@ -539,7 +539,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970440",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Seabank.png",
+        logo: "/bank_icon/Seabank.png",
         value: "970440",
         label: "NH Dong Nam A"
     },
@@ -555,7 +555,7 @@ export const bankList = [
         realTimeTransfer: "N",
         bankGroup: "2",
         bankCode: "970446",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Coopbank.png",
+        logo: "/bank_icon/Coopbank.png",
         value: "970446",
         label: "NH Hop Tac Xa VN"
     },
@@ -571,7 +571,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970421",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VRB.png",
+        logo: "/bank_icon/VRB.png",
         value: "970421",
         label: "NH Lien doanh Viet Nga – VN Branch"
     },
@@ -586,7 +586,7 @@ export const bankList = [
         bankShortName: "Vinasiambank",
         realTimeTransfer: "N",
         bankGroup: "2",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Vinasiambank.png",
+        logo: "/bank_icon/Vinasiambank.png",
         label: "NH Lien doanh Viet Thai – VN Branch"
     },
     {
@@ -600,7 +600,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970432",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VPBank.png",
+        logo: "/bank_icon/VPBank.png",
         value: "970432",
         label: "VPBank – NH Viet Nam Thinh Vuong"
     },
@@ -615,7 +615,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "546034",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Cake.png",
+        logo: "/bank_icon/Cake.png",
         value: "546034",
         label: "Ngan hang so CAKE by VPBank"
     },
@@ -630,7 +630,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "546035",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Ubank.png",
+        logo: "/bank_icon/Ubank.png",
         value: "546035",
         label: "Ngan hang so Ubank by VPBank"
     },
@@ -646,7 +646,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970428",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/NamA.png",
+        logo: "/bank_icon/NamA.png",
         value: "970428",
         label: "NH Nam A"
     },
@@ -662,7 +662,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970419",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/NHQuocdan.png",
+        logo: "/bank_icon/NHQuocdan.png",
         value: "970419",
         label: "NH Quoc Dan"
     },
@@ -678,7 +678,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970400",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Saigonbank.png",
+        logo: "/bank_icon/Saigonbank.png",
         value: "970400",
         label: "NH Sai Gon Cong Thuong"
     },
@@ -694,7 +694,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970439",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VID.png",
+        logo: "/bank_icon/VID.png",
         value: "970439",
         label: "NH VID Public"
     },
@@ -710,7 +710,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970427",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/VietA.png",
+        logo: "/bank_icon/VietA.png",
         value: "970427",
         label: "NH Viet A"
     },
@@ -726,7 +726,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970433",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Vietbank.png",
+        logo: "/bank_icon/Vietbank.png",
         value: "970433",
         label: "NH Viet Nam Thuong Tin"
     },
@@ -742,7 +742,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970430",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/PGBank.png",
+        logo: "/bank_icon/PGBank.png",
         value: "970430",
         label: "NH Xang dau Petrolimex"
     },
@@ -758,7 +758,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "0",
         bankCode: "970444",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/CBBank.png",
+        logo: "/bank_icon/CBBank.png",
         value: "970444",
         label: "NH Xay Dung VN"
     },
@@ -774,7 +774,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "970424",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Shinhan.png",
+        logo: "/bank_icon/Shinhan.png",
         value: "970424",
         label: "Shinhan Vietnam Bank Limited"
     },
@@ -790,7 +790,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970410",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/StandardChartered.png",
+        logo: "/bank_icon/StandardChartered.png",
         value: "970410",
         label: "Standard Chartered Viet Nam"
     },
@@ -806,7 +806,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970458",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/UOB.png",
+        logo: "/bank_icon/UOB.png",
         value: "970458",
         label: "United Overseas Bank – VN Branch"
     },
@@ -822,7 +822,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970457",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Wooribank.png",
+        logo: "/bank_icon/Wooribank.png",
         value: "970457",
         label: "Ngân hàng TNHH MTV Woori Việt Nam"
     },
@@ -838,7 +838,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "422589",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/CIMB.png",
+        logo: "/bank_icon/CIMB.png",
         value: "422589",
         label: "NH TNHH MTV CIMB Viet Nam"
     },
@@ -854,7 +854,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "801011",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/NHyup.png",
+        logo: "/bank_icon/NHyup.png",
         value: "801011",
         label: "Nong Hyup Bank"
     },
@@ -870,7 +870,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "970452",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Kienlong.png",
+        logo: "/bank_icon/Kienlong.png",
         value: "970452",
         label: "NH Kien Long"
     },
@@ -886,7 +886,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "1",
         bankCode: "977777",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/MAFC.png",
+        logo: "/bank_icon/MAFC.png",
         value: "977777",
         label: "Cong ty CP Tai chinh TNHH MTV Mirae Asset Viet Nam MAFC"
     },
@@ -902,7 +902,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "963369",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/Liobank.png",
+        logo: "/bank_icon/Liobank.png",
         value: "963369",
         label: "Liobank"
     },
@@ -918,7 +918,7 @@ export const bankList = [
         realTimeTransfer: "Y",
         bankGroup: "2",
         bankCode: "668888",
-        logo: "https://app2.timo.vn/cxpassets/frontend/images/banklist-logos/KBank.png",
+        logo: "/bank_icon/KBank.png",
         value: "668888",
         label: "KBank - Dai chung TNHH Kasikornbank"
     }
