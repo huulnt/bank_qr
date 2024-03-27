@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +15,7 @@ const RootLayout = ({ children }) => (
     <html lang="en">
         <body>
             <AntdRegistry>{children}</AntdRegistry>
+            <SpeedInsights />
         </body>
     </html>
 );
