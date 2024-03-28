@@ -98,7 +98,7 @@ const VietQrForm = () => {
                 autoComplete="off"
                 className='sm:w-auto sm:h-auto w-full h-full'
             >
-                <Card className='min-w-full min-h-full '>
+                <Card className='min-w-full min-h-full'>
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 md:gap-3">
                         <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
                             <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
@@ -131,8 +131,8 @@ const VietQrForm = () => {
                             </>}
                         </div>
 
-                        <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full" >
-                            <div ref={qrCodeRef} className='py-10'>
+                        <div className="md:min-w-96 sm:min-w-96 w-full">
+                            <div ref={qrCodeRef} className='p-10 md:px-8 px-6'>
                                 <VietQrCode
                                     bankAccount={bankAccount}
                                     descriptionWithAmount={descriptionWithAmount}
