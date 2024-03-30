@@ -38,8 +38,8 @@ const VietQrCode = ({
         const pointOfInitiationMethod = amountWithAmount === "" ? VIET_QR_CODE.STATIC_POINT_OF_INITIATION_METHOD : VIET_QR_CODE.POINT_OF_INITIATION_METHOD; // Point of Initiation Method, 11: Static QR Code, 12: dynamic QR Code. All other values are RFU.
         const account = upperCase(accNumber);
         const accountNumberLength = account.length < 10 ? `0${account.length}` : account.length;
-        const napasBankCode = bankCode; // beneficiary bank code https://www.indovinabank.com.vn/sites/default/files/0%20MARKETING_p1/EBANKING%20forms/Các%20ngân%20hàng%20trong%20liên%20minh%20NAPAS_vn.pdf
-        const bankInformation = `0006${napasBankCode}01${accountNumberLength}${account}`;
+       // beneficiary bank code https://www.indovinabank.com.vn/sites/default/files/0%20MARKETING_p1/EBANKING%20forms/Các%20ngân%20hàng%20trong%20liên%20minh%20NAPAS_vn.pdf
+        const bankInformation = `0006${bankCode}01${accountNumberLength}${account}`;
         const beneficiaryInformation = `${VIET_QR_CODE.AID}${bankInformation.length}${bankInformation}${VIET_QR_CODE.NAPAS_FAST_TRANSFER}`; // Beneficiary account information
         const consumerAccountInformation = `38${beneficiaryInformation.length}${beneficiaryInformation}`; // Merchant Account Information
         const transactionCurrency = VIET_QR_CODE.TRANSACTION_CURRENCY_CODE; // Transaction Currency Code https://en.wikipedia.org/wiki/ISO_4217
@@ -82,7 +82,7 @@ const VietQrCode = ({
 
 
     return <>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center min-h-80">
             <div className="flex justify-center mb-4">
                 <QRCode
                     renderAs="canvas"

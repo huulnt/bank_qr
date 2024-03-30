@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useMemo, useRef } from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import {
-    Card, Col, Form, Input, InputNumber, Row, Select, Switch,
-    Button
+    Card, Form, Input, InputNumber, Select, Switch,
+    Button, Modal
 } from 'antd';
 
 import { bankList } from './../helper/qr_setting_helper'
@@ -14,24 +14,23 @@ import {
 } from 'antd';
 
 import html2canvas from "html2canvas";
-import { upperCase } from 'lodash';
+import { SettingOutlined } from '@ant-design/icons';
+import CustomDownload from "@/app/qr_setting/component/CustomDownload";
 
 
-const { Header, Footer, Sider, Content } = Layout;
-const headerStyle = {
-    textAlign: 'center', color: '#fff', height: 64, paddingInline: 48, lineHeight: '64px', backgroundColor: '#4096ff',
-};
+const {  Content } = Layout;
+
 const contentStyle = {};
-const footerStyle = {
-    textAlign: 'center', color: '#fff', backgroundColor: '#4096ff',
-};
+
 const layoutStyle = {
     borderRadius: 8, overflow: 'hidden', height: "100%", width: "100%",
 };
 
 const VietQrForm = () => {
     const qrCodeRef = useRef();
+    const customDownloadRef = useRef();
 
+    const [open, setOpen] = useState(false);
 
     const [form] = Form.useForm();
     const allowAmount = Form.useWatch("allowAmount", form);
@@ -41,11 +40,6 @@ const VietQrForm = () => {
     const accNumber = Form.useWatch('bankAccount', form);
     const fullName = Form.useWatch('fullName', form);
 
-
-
-    const onChange = () => {
-        //
-    }
 
     const filterOption = (input = '', option = {}) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankShortName ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankName ?? '').toLowerCase().includes(input.toLowerCase())
 
@@ -58,22 +52,8 @@ const VietQrForm = () => {
         //
     }
 
-    const downloadQRCode = async () => {
-        // html2canvas(qrCodeRef.current, {
-        //     logging: true,
-        //     letterRendering: 1,
-        //     allowTaint: false,
-        //     useCORS: true,
-        // }).then((canvas) => {
-        //     const qrDownload = document.createElement("a");
-
-        //     qrDownload.download = `QR-${upperCase(fullName) || ''}-${Date.now()}.png`;
-        //     qrDownload.href = canvas.toDataURL("image/png");
-        //     qrDownload.target = "_blank";
-        //     qrDownload.click();
-        // });
-
-        html2canvas(qrCodeRef.current).then((canvas) => {
+    const downloadQRCode = async (element) => {
+        html2canvas(element).then((canvas) => {
             const qrDownload = document.createElement("a");
             const currentDate = new Date().getTime();
             qrDownload.download = `huulnt-vietqr-code-${currentDate}.png`;
@@ -81,8 +61,23 @@ const VietQrForm = () => {
             qrDownload.target = "_blank";
             qrDownload.click();
         });
-
+        // qrCodeRef.current
     };
+
+
+    const confirmModel = () => {
+        downloadQRCode(customDownloadRef.current);
+        // setOpen(true);
+    };
+
+    const hideModal = () => {
+        setOpen(false);
+    };
+
+
+    const handleOpenCustom = () => {
+        setOpen(true)
+    }
 
     return <Layout style={layoutStyle} className="flex flex-row">
         <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto ">
@@ -111,7 +106,7 @@ const VietQrForm = () => {
                                 <Input placeholder="Input your full name" />
                             </Form.Item>
                             <Form.Item label="Allow input amount" name="allowAmount">
-                                <Switch onChange={onChange} size="small" />
+                                <Switch size="small" />
                             </Form.Item>
 
                             {allowAmount && <>
@@ -146,10 +141,23 @@ const VietQrForm = () => {
                                 ></VietQrCode>
                             </div>
                             <div className='mt-5 flex justify-center'>
-                                <Button type="primary" onClick={downloadQRCode}>Download</Button>
+                                <Button type="dashed" icon={<SettingOutlined />} className='mr-2' onClick={handleOpenCustom}>
+                                    Custom download
+                                </Button>
+
+                                <Button type="primary" onClick={() => downloadQRCode(qrCodeRef.current)}>Download</Button>
                             </div>
                         </div>
-
+                        <Modal
+                            title="Custom download Viet QR Code"
+                            open={open}
+                            onOk={confirmModel}
+                            onCancel={hideModal}
+                            okText="Download"
+                            cancelText="Cancel"
+                        >
+                           <CustomDownload config={{...form.getFieldsValue(), ...bankDetail}} ref={customDownloadRef}/>
+                        </Modal>
 
                     </div>
                 </Card>
