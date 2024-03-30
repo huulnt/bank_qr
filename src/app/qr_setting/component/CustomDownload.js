@@ -12,22 +12,23 @@ const CustomDownload = forwardRef(function CustomDownload(props, ref) {
 
     useEffect(() => {
         return () => {
+            console.log('close')
             form.resetFields();
         }
     }, [form]);
 
     return <>
         <div className="flex justify-center" >
-            <div className="p-5 border border-slate-300 " style={{
-                width: `${width}px`,
-                height: `${height < 360 ? 'auto' : `${height}px`}`,
-                padding: `${padding}px`
-            }}   ref={ref}>
+            <div className=" border border-slate-300 overflow-auto" >
                 <VietQrCode
                     {...config}
                     accNumber={config.bankAccount}
                     amountWithAmount={config.amount}
                     descriptionWithAmount={config.description}
+                    width={width}
+                    height={height}
+                    padding={padding}
+                    ref={ref}
                 ></VietQrCode>
             </div>
         </div>
@@ -40,7 +41,6 @@ const CustomDownload = forwardRef(function CustomDownload(props, ref) {
                     height: 'auto',
                     padding: 20
                 }}
-
             >
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 md:gap-3">
                     <Form.Item className="w-full" name="width" style={{marginBottom: 12}}>

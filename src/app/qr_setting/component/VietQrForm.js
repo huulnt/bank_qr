@@ -67,7 +67,6 @@ const VietQrForm = () => {
 
     const confirmModel = () => {
         downloadQRCode(customDownloadRef.current);
-        // setOpen(true);
     };
 
     const hideModal = () => {
@@ -155,6 +154,7 @@ const VietQrForm = () => {
                             onCancel={hideModal}
                             okText="Download"
                             cancelText="Cancel"
+                            destroyOnClose
                         >
                            <CustomDownload config={{...form.getFieldsValue(), ...bankDetail}} ref={customDownloadRef}/>
                         </Modal>
