@@ -93,7 +93,7 @@ const VietQrForm = () => {
                 className='sm:w-auto sm:h-auto w-full h-full'
             >
                 <Card className='min-w-full min-h-full'>
-                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 md:gap-3">
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-2 lg:grid-cols-2">
                         <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
                             <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
                                 <Select options={bankList} showSearch filterOption={filterOption} />
