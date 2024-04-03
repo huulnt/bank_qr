@@ -1,11 +1,11 @@
 'use client';
 
-import {forwardRef, memo, useMemo} from "react";
+import { forwardRef, memo, useMemo } from "react";
 import {
     Card, Typography
 } from 'antd';
-import {calculationCRC, convertVietnameseCharacterToUnicode} from "../helper/qr_setting_helper";
-import {upperCase} from "lodash";
+import { calculationCRC, convertVietnameseCharacterToUnicode } from "../helper/qr_setting_helper";
+import { upperCase } from "lodash";
 import QRCode from "qrcode.react";
 
 
@@ -34,7 +34,10 @@ const VietQrCode = forwardRef(function VietQrCode(props, ref) {
         allowAmount = false,
         width,
         height,
-        padding
+        paddingLeft,
+        paddingBottom,
+        paddingRight,
+        paddingTop
     } = props;
 
     const generationQRCodeWithAmount = useMemo(() => {
@@ -65,11 +68,11 @@ const VietQrCode = forwardRef(function VietQrCode(props, ref) {
         const endCode = VIET_QR_CODE.CRC; // CRC (Cyclic Redundancy Check)
 
         let code = `${payloadFormatIndicator + pointOfInitiationMethod + consumerAccountInformation + transactionCurrency + transactionAmountKey + transactionAmountLength + transactionAmount + // for amount
-        countryCode}`;
+            countryCode}`;
 
         if (replaceAllSpecialCharacterDescription.length !== 0) {
             code = `${code + transactionDescriptionKey + transactionDescriptionLength}08${replaceAllSpecialCharacterDescription.length < 10 ? `0${replaceAllSpecialCharacterDescription.length}` : replaceAllSpecialCharacterDescription.length}${replaceAllSpecialCharacterDescription // for description
-            }${endCode}`;
+                }${endCode}`;
         } else {
             code = `${code + endCode}`;
         }
@@ -86,11 +89,14 @@ const VietQrCode = forwardRef(function VietQrCode(props, ref) {
 
 
     return <>
-        <div className="flex flex-col justify-center min-h-80"  style={{
-            width:`${width < 450 ? `${450}px` : `${width}px`}`,
+        <div className="flex flex-col min-h-80" style={{
+            width: `${width < 450 ? `${450}px` : `${width}px`}`,
             height: `${height < 360 ? 'auto' : `${height}px`}`,
-            padding: `${padding}px`
-        }}  ref={ref} >
+            paddingLeft: `${paddingLeft}px`,
+            paddingBottom: `${paddingBottom}px`,
+            paddingRight: `${paddingRight}px`,
+            paddingTop: `${paddingTop}px`,
+        }} ref={ref} >
             <div className="flex justify-center mb-4">
                 <QRCode
                     renderAs="canvas"
@@ -105,24 +111,24 @@ const VietQrCode = forwardRef(function VietQrCode(props, ref) {
                 />
             </div>
             <div className="flex flex-col justify-center text-center">
-                <Typography.Title level={2} style={{margin: 0}} className="mb-1 uppercase">
+                <Typography.Title level={2} style={{ margin: 0 }} className="mb-1 uppercase">
                     {accNumber}
                 </Typography.Title>
-                <Typography.Title level={3} style={{margin: 0}} className="mb-1 uppercase">
+                <Typography.Title level={3} style={{ margin: 0 }} className="mb-1 uppercase">
                     {fullName}
                 </Typography.Title>
 
-                <Typography.Title level={5} style={{margin: 0}}>
+                <Typography.Title level={5} style={{ margin: 0 }}>
                     {bankName}
                 </Typography.Title>
 
                 {allowAmount && (amountWithAmount || descriptionWithAmount) &&
                     <div className="flex justify-center mt-2">
                         <Card className="p-1">
-                            {amountWithAmount && <Typography.Title level={5} style={{margin: 0}}>
+                            {amountWithAmount && <Typography.Title level={5} style={{ margin: 0 }}>
                                 Amount: {formatter.format(amountWithAmount)}
                             </Typography.Title>}
-                            {descriptionWithAmount && <Typography.Title level={5} style={{margin: 0}}>
+                            {descriptionWithAmount && <Typography.Title level={5} style={{ margin: 0 }}>
                                 Description: {descriptionWithAmount}
                             </Typography.Title>}
                         </Card>
