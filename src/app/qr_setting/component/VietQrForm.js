@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useMemo, useRef, useState} from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
     Card, Form, Input, InputNumber, Select, Switch,
     Button, Modal
@@ -18,7 +18,7 @@ import { SettingOutlined } from '@ant-design/icons';
 import CustomDownload from "@/app/qr_setting/component/CustomDownload";
 
 
-const {  Content } = Layout;
+const { Content } = Layout;
 
 const contentStyle = {};
 
@@ -95,13 +95,13 @@ const VietQrForm = () => {
                 <Card className='min-w-full min-h-full'>
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-2 lg:grid-cols-2">
                         <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
-                            <Form.Item label="Bank List" name="bank" rules={[{ required: true }]}>
+                            <Form.Item label="Bank List" name="bank" >
                                 <Select options={bankList} showSearch filterOption={filterOption} />
                             </Form.Item>
-                            <Form.Item label="Bank Account" name="bankAccount" rules={[{ required: true }]}>
+                            <Form.Item label="Bank Account" name="bankAccount">
                                 <Input type="input" placeholder="Input your bank account here!!!" />
                             </Form.Item>
-                            <Form.Item label="Full name" name="fullName" rules={[{ required: true }]}>
+                            <Form.Item label="Full name" name="fullName" >
                                 <Input placeholder="Input your full name" />
                             </Form.Item>
                             <Form.Item label="Allow input amount" name="allowAmount">
@@ -156,7 +156,7 @@ const VietQrForm = () => {
                             cancelText="Cancel"
                             destroyOnClose
                         >
-                           <CustomDownload config={{...form.getFieldsValue(), ...bankDetail}} ref={customDownloadRef}/>
+                            <CustomDownload config={{ ...form.getFieldsValue(), ...bankDetail }} ref={customDownloadRef} />
                         </Modal>
 
                     </div>
