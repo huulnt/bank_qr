@@ -2,15 +2,15 @@
 
 import React, { useMemo, useRef, useState } from 'react';
 import {
-    Card, Form, Input, InputNumber, Select, Switch,
-    Button, Modal
+  Card, Form, Input, InputNumber, Select, Switch,
+  Button, Modal
 } from 'antd';
 
 import { bankList } from './../helper/qr_setting_helper'
 import TextArea from "antd/es/input/TextArea";
 import VietQrCode from './VietQrCode';
 import {
-    Layout
+  Layout
 } from 'antd';
 
 import html2canvas from "html2canvas";
@@ -23,146 +23,170 @@ const { Content } = Layout;
 const contentStyle = {};
 
 const layoutStyle = {
-    borderRadius: 8, overflow: 'hidden', height: "100%", width: "100%",
+  borderRadius: 8, overflow: 'hidden', height: "100%", width: "100%",
 };
 
 const VietQrForm = () => {
-    const qrCodeRef = useRef();
-    const customDownloadRef = useRef();
+  const qrCodeRef = useRef();
+  const customDownloadRef = useRef();
 
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const [form] = Form.useForm();
-    const allowAmount = Form.useWatch("allowAmount", form);
-    const bankAccount = Form.useWatch('bank', form);
-    const descriptionWithAmount = Form.useWatch('description', form);
-    const amountWithAmount = Form.useWatch('amount', form);
-    const accNumber = Form.useWatch('bankAccount', form);
-    const fullName = Form.useWatch('fullName', form);
-
-
-    const filterOption = (input = '', option = {}) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankShortName ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankName ?? '').toLowerCase().includes(input.toLowerCase())
+  const [form] = Form.useForm();
+  const allowAmount = Form.useWatch("allowAmount", form);
+  const bankAccount = Form.useWatch('bank', form);
+  const descriptionWithAmount = Form.useWatch('description', form);
+  const amountWithAmount = Form.useWatch('amount', form);
+  const accNumber = Form.useWatch('bankAccount', form);
+  const fullName = Form.useWatch('fullName', form);
 
 
-    const bankDetail = useMemo(() => {
-        return bankList.find(item => item.value === bankAccount)
-    }, [bankAccount]);
-
-    const onFinish = () => {
-        //
-    }
-
-    const downloadQRCode = async (element) => {
-        html2canvas(element).then((canvas) => {
-            const qrDownload = document.createElement("a");
-            const currentDate = new Date().getTime();
-            qrDownload.download = `huulnt-vietqr-code-${currentDate}.png`;
-            qrDownload.href = canvas.toDataURL("image/png");
-            qrDownload.target = "_blank";
-            qrDownload.click();
-        });
-        // qrCodeRef.current
-    };
+  const filterOption = (input = '', option = {}) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankShortName ?? '').toLowerCase().includes(input.toLowerCase()) || (option?.bankName ?? '').toLowerCase().includes(input.toLowerCase())
 
 
-    const confirmModel = () => {
-        downloadQRCode(customDownloadRef.current);
-    };
+  const bankDetail = useMemo(() => {
+    return bankList.find(item => item.value === bankAccount)
+  }, [bankAccount]);
 
-    const hideModal = () => {
-        setOpen(false);
-    };
+  const onFinish = () => {
+    //
+  }
+
+  const downloadQRCode = async (element) => {
+    html2canvas(element).then((canvas) => {
+      const qrDownload = document.createElement("a");
+      const currentDate = new Date().getTime();
+      qrDownload.download = `huulnt-vietqr-code-${currentDate}.png`;
+      qrDownload.href = canvas.toDataURL("image/png");
+      qrDownload.target = "_blank";
+      qrDownload.click();
+    });
+    // qrCodeRef.current
+  };
+
+  const copeQRCode = async (element) => {
+    html2canvas(element).then((canvas) => {
+      // const qr = canvas.toBlob("image/png");
 
 
-    const handleOpenCustom = () => {
-        setOpen(true)
-    }
+      try {
+        canvas.toBlob((blob) => {
+          console.log(blob);
 
-    return <Layout style={layoutStyle} className="flex flex-row">
-        <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto ">
-            <Form form={form}
-                name="qrCode"
-                layout="vertical"
-                onFinish={onFinish}
-                initialValues={{
-                    bank: '970436',
-                    allowAmount: false,
-                    amount: ''
-                }}
-                autoComplete="off"
-                className='sm:w-auto sm:h-auto w-full h-full'
+          navigator.clipboard.write([
+            new ClipboardItem({
+              'image/png': blob
+            })
+          ]);
+        })
+
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    // qrCodeRef.current
+  };
+
+
+  const confirmModel = () => {
+    downloadQRCode(customDownloadRef.current);
+  };
+
+  const hideModal = () => {
+    setOpen(false);
+  };
+
+
+  const handleOpenCustom = () => {
+    setOpen(true)
+  }
+
+  return <Layout style={layoutStyle} className="flex flex-row">
+    <Content style={contentStyle} className="container mx-auto flex justify-center items-center overflow-auto ">
+      <Form form={form}
+        name="qrCode"
+        layout="vertical"
+        onFinish={onFinish}
+        initialValues={{
+          bank: '970436',
+          allowAmount: false,
+          amount: ''
+        }}
+        autoComplete="off"
+        className='sm:w-auto sm:h-auto w-full h-full'
+      >
+        <Card className='min-w-full min-h-full'>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-2 lg:grid-cols-2">
+            <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
+              <Form.Item label="Bank List" name="bank" >
+                <Select options={bankList} showSearch filterOption={filterOption} />
+              </Form.Item>
+              <Form.Item label="Bank Account" name="bankAccount">
+                <Input type="input" placeholder="Input your bank account here!!!" />
+              </Form.Item>
+              <Form.Item label="Full name" name="fullName" >
+                <Input placeholder="Input your full name" />
+              </Form.Item>
+              <Form.Item label="Allow input amount" name="allowAmount">
+                <Switch size="small" />
+              </Form.Item>
+
+              {allowAmount && <>
+                <Form.Item label="Amount" name="amount">
+                  <InputNumber
+                    placeholder="Input your amount here!!!"
+                    prefix="đ" suffix="VND"
+                    style={{ width: '100%' }} />
+                </Form.Item>
+                <Form.Item label="Description" name="description">
+                  <TextArea
+                    placeholder="Input your description here!!!"
+                    autoSize={{ minRows: 2, maxRows: 6, maxLength: 99 }}
+                  />
+                </Form.Item>
+
+              </>}
+            </div>
+
+            <div className="md:min-w-96 sm:min-w-96 w-full">
+              <div ref={qrCodeRef} className='p-10 md:px-8 px-6'>
+                <VietQrCode
+                  bankAccount={bankAccount}
+                  descriptionWithAmount={descriptionWithAmount}
+                  amountWithAmount={amountWithAmount}
+                  accNumber={accNumber}
+                  logo={bankDetail.logo}
+                  bankName={bankDetail.bankName}
+                  fullName={fullName}
+                  allowAmount={allowAmount}
+                  bankCode={bankDetail.bankCode}
+                ></VietQrCode>
+              </div>
+              <div className='mt-5 flex justify-center'>
+                <Button type="dashed" icon={<SettingOutlined />} className='mr-2' onClick={handleOpenCustom}>
+                  Custom download
+                </Button>
+
+                <Button type="dashed" className='mr-2' onClick={() => copeQRCode(qrCodeRef.current)}>Copy</Button>
+                <Button type="primary" className='mr-2' onClick={() => downloadQRCode(qrCodeRef.current)}>Download</Button>
+              </div>
+            </div>
+            <Modal
+              title="Custom download Viet QR Code"
+              open={open}
+              onOk={confirmModel}
+              onCancel={hideModal}
+              okText="Download"
+              cancelText="Cancel"
+              destroyOnClose
             >
-                <Card className='min-w-full min-h-full'>
-                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-2 lg:grid-cols-2">
-                        <div className="md:min-w-80 md:max-w-80 sm:min-w-96 sm:max-w-96 w-full">
-                            <Form.Item label="Bank List" name="bank" >
-                                <Select options={bankList} showSearch filterOption={filterOption} />
-                            </Form.Item>
-                            <Form.Item label="Bank Account" name="bankAccount">
-                                <Input type="input" placeholder="Input your bank account here!!!" />
-                            </Form.Item>
-                            <Form.Item label="Full name" name="fullName" >
-                                <Input placeholder="Input your full name" />
-                            </Form.Item>
-                            <Form.Item label="Allow input amount" name="allowAmount">
-                                <Switch size="small" />
-                            </Form.Item>
+              <CustomDownload config={{ ...form.getFieldsValue(), ...bankDetail }} ref={customDownloadRef} />
+            </Modal>
 
-                            {allowAmount && <>
-                                <Form.Item label="Amount" name="amount">
-                                    <InputNumber
-                                        placeholder="Input your amount here!!!"
-                                        prefix="đ" suffix="VND"
-                                        style={{ width: '100%' }} />
-                                </Form.Item>
-                                <Form.Item label="Description" name="description">
-                                    <TextArea
-                                        placeholder="Input your description here!!!"
-                                        autoSize={{ minRows: 2, maxRows: 6, maxLength: 99 }}
-                                    />
-                                </Form.Item>
-
-                            </>}
-                        </div>
-
-                        <div className="md:min-w-96 sm:min-w-96 w-full">
-                            <div ref={qrCodeRef} className='p-10 md:px-8 px-6'>
-                                <VietQrCode
-                                    bankAccount={bankAccount}
-                                    descriptionWithAmount={descriptionWithAmount}
-                                    amountWithAmount={amountWithAmount}
-                                    accNumber={accNumber}
-                                    logo={bankDetail.logo}
-                                    bankName={bankDetail.bankName}
-                                    fullName={fullName}
-                                    allowAmount={allowAmount}
-                                    bankCode={bankDetail.bankCode}
-                                ></VietQrCode>
-                            </div>
-                            <div className='mt-5 flex justify-center'>
-                                <Button type="dashed" icon={<SettingOutlined />} className='mr-2' onClick={handleOpenCustom}>
-                                    Custom download
-                                </Button>
-
-                                <Button type="primary" onClick={() => downloadQRCode(qrCodeRef.current)}>Download</Button>
-                            </div>
-                        </div>
-                        <Modal
-                            title="Custom download Viet QR Code"
-                            open={open}
-                            onOk={confirmModel}
-                            onCancel={hideModal}
-                            okText="Download"
-                            cancelText="Cancel"
-                            destroyOnClose
-                        >
-                            <CustomDownload config={{ ...form.getFieldsValue(), ...bankDetail }} ref={customDownloadRef} />
-                        </Modal>
-
-                    </div>
-                </Card>
-            </Form>
-        </Content>
-    </Layout>
+          </div>
+        </Card>
+      </Form>
+    </Content>
+  </Layout>
 }
 export default VietQrForm
