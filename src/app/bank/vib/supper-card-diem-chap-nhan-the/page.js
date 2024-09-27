@@ -21,7 +21,7 @@ export const metadata = {
 const PaymentAcceptance = () => {
   return <Layout className="md:h-full px-4">
     <Content className="container mx-auto flex items-center flex-col">
-      <Title className="mt-2 text-center">VIB Supper Card - ĐIỂM CHẤP NHẬN THẺ</Title>
+      <Title level={2} className="mt-5 text-center">VIB Supper Card - ĐIỂM CHẤP NHẬN THẺ</Title>
       <Table></Table>
     </Content>
   </Layout>
