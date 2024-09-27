@@ -42,7 +42,7 @@ const TableComponent = () => {
     setSource(search);
   }
 
-  return <div className="flex justify-center flex-col items-center overflow-auto w-full">
+  return <div className="flex justify-center flex-col items-center  w-full">
     <div className="mb-4 w-1/2">
       <Input placeholder="Tìm kiếm" size="large" onChange={(data) => {
         console.log("value: ", data.target.value)
