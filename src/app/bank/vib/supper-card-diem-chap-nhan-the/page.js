@@ -13,7 +13,7 @@ export const metadata = {
   },
   openGraph: {
       title: "Tìm điểm chấp nhận thẻ VIB",
-      description: "Hỗ trợ tìm nơi thanh toán thẻ VIB Supper Carde",
+      description: "Hỗ trợ tìm nơi thanh toán thẻ VIB Supper Card",
       images: 'https://app2.timo.vn/cxpassets/frontend/images/pfm/tomi_rock_scissors_paper/avt.jpeg',
   },
 };
