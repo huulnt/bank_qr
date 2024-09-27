@@ -24,7 +24,7 @@ const TableComponent = () => {
       render: (text) => <Tooltip placement="topLeft" title={text}>
         <Text >{text}</Text>
       </Tooltip>,
-
+      width: 150
     },
     {
       title: 'Loại Cửa Hàng',
@@ -36,7 +36,8 @@ const TableComponent = () => {
     {
       title: 'Danh Mục Chi Tiêu',
       dataIndex: 'category',
-      key: 'category'
+      key: 'category',
+      width: 150
     },
     {
       title: 'Ghi Chú',
@@ -66,8 +67,8 @@ const TableComponent = () => {
       }} />
     </div>
 
-    <div className="w-full">
-      <Table columns={columns} dataSource={source} />
+    <div className="w-full over">
+      <Table columns={columns} dataSource={source} scroll={{ x: 500 }}/>
     </div>
 
   </div>
