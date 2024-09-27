@@ -1,28 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Input, Table } from "antd";
+import { Input, Table, Tooltip, Typography } from "antd";
 
 import vibCard from '/public/local_data/vib_supper_card.json';
+const { Text } = Typography;
 
-
-const columns = [
-  {
-    title: 'Địa điểm chấp nhận thẻ',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Loại Cửa Hàng',
-    dataIndex: 'type',
-    key: 'type',
-  },
-  {
-    title: 'Ghi Chú',
-    dataIndex: 'note',
-    key: 'note',
-  }
-];
 
 
 const TableComponent = () => {
@@ -30,13 +13,46 @@ const TableComponent = () => {
   const [source, setSource] = useState(vibCard);
   const regex = /[^\w\s']/g;
 
+  const columns = [
+    {
+      title: 'Địa điểm chấp nhận thẻ',
+      dataIndex: 'name',
+      key: 'name',
+      ellipsis: {
+        showTitle: false,
+      },
+      render: (text) => <Tooltip placement="topLeft" title={text}>
+        <Text >{text}</Text>
+      </Tooltip>,
+
+    },
+    {
+      title: 'Loại Cửa Hàng',
+      dataIndex: 'type',
+      key: 'type',
+      render: (text) => <Text italic>{text}</Text>,
+      width: 150
+    },
+    {
+      title: 'Danh Mục Chi Tiêu',
+      dataIndex: 'category',
+      key: 'category'
+    },
+    {
+      title: 'Ghi Chú',
+      dataIndex: 'note',
+      key: 'note',
+      width: 100
+    }
+  ];
+
   const handleChangeValue = (value) => {
     const search = vibCard.filter(item => {
       const name = item.name.toLowerCase();
       const type = item.type.toLowerCase();
       const note = item.note.toLowerCase();
-      const text= value.toLowerCase();
-      
+      const text = value.toLowerCase();
+
       return name.includes(text) || type.includes(text) || note.includes(text);
     });
     setSource(search);
@@ -47,7 +63,7 @@ const TableComponent = () => {
       <Input placeholder="Tìm kiếm" size="large" onChange={(data) => {
         console.log("value: ", data.target.value)
         handleChangeValue(data.target.value)
-      }}/>
+      }} />
     </div>
 
     <div className="w-full">
