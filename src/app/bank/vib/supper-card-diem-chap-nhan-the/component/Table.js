@@ -31,7 +31,14 @@ const TableComponent = () => {
   const regex = /[^\w\s']/g;
 
   const handleChangeValue = (value) => {
-    const search = vibCard.filter(item => item.name.includes(value) || item.type.includes(value) || item.note.includes(value));
+    const search = vibCard.filter(item => {
+      const name = item.name.toLowerCase();
+      const type = item.type.toLowerCase();
+      const note = item.note.toLowerCase();
+      const text= value.toLowerCase();
+      
+      return name.includes(text) || type.includes(text) || note.includes(text);
+    });
     setSource(search);
   }
 
