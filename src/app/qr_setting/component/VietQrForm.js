@@ -66,9 +66,6 @@ const VietQrForm = () => {
 
   const copeQRCode = async (element) => {
     html2canvas(element).then((canvas) => {
-      // const qr = canvas.toBlob("image/png");
-
-
       try {
         canvas.toBlob((blob) => {
           console.log(blob);
@@ -128,7 +125,7 @@ const VietQrForm = () => {
                 <Input placeholder="Input your full name" />
               </Form.Item>
               <Form.Item label="Allow input amount" name="allowAmount">
-                <Switch size="small" />
+                <Switch size="small" name="allowAmountBtn"/>
               </Form.Item>
 
               {allowAmount && <>
