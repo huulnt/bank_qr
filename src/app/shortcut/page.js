@@ -16,6 +16,10 @@ export const metadata = {
   description: "Hỗ trợ tìm nơi thanh toán thẻ VIB Supper Card",
   icons: {
     icon: 'https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png',
+    other: {
+      rel: 'apple-touch-icon',
+      url: 'https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png',
+    },
   },
   openGraph: {
     title: "Tìm điểm chấp nhận thẻ VIB",
@@ -28,11 +32,10 @@ const ShortCut = () => {
 
 
   return <>
-    
     <ShortCutHeader></ShortCutHeader>
     <Suspense>
       <ShortCutController></ShortCutController>
-     
+
     </Suspense>
 
     {/* <AddToHomeScreenButton/> */}
