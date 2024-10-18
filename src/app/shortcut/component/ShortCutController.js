@@ -67,21 +67,27 @@ const ShortCutController = () => {
   useEffect(() => {
     if (storeCode) {
       const manifestElement = document.getElementById("manifest");
-      const manifestString = JSON.stringify({
+      const manifestData = {
         ...manifest,
         start_url: `/shortcut?${storeCode}`,
-        appName,
+        name: appName,
         icons: [
           {
             "src": appIcon,
-            "sizes": "any",
-            "type": "image/png"
+            "sizes": "32x32",
+            "type": "image/svg+xml"
           },
         ]
-      });
+      };
+
+      console.log('manifestData: ',manifestData);
+      
+
+      const manifestString = JSON.stringify(manifestData);
+      const url = 'data:application/manifest+json,' + manifestString;
       manifestElement?.setAttribute(
         "href",
-        "data:application/manifest+json, " + manifestString,
+        url
       );
     }
   }, [appIcon, appName, storeCode]);
