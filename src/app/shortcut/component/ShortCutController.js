@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 
 import manifest from '/public/manifest.json'
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { icons } from 'antd/es/image/PreviewGroup';
 
 
@@ -18,6 +18,8 @@ const ShortCutController = () => {
   const appIcon = searchParams.get('app_icon');
   const redirectUrl = searchParams.get('redirect_url');
   const storeCode = searchParams.toString();
+
+  const isInit = useRef(false)
 
   const [deferredPrompt, setDeferredPrompt] = useState(null)
 
@@ -65,20 +67,23 @@ const ShortCutController = () => {
 
 
   useEffect(() => {
-    if (storeCode) {
+    if (storeCode && !isInit.current) {
+      isInit.current = true;
       const manifestElement = document.getElementById("manifest");
-      const manifestData = {
-        ...manifest,
-        start_url: `/shortcut?${storeCode}`,
-        name: appName,
+      const manifestData ={
+        name: "Chuyển tiền",
+        short_name: "Chuyển tiền",
+        start_url: "zalopay://launch/app/1313?from_source=mini_app_shortcut",
+        display: "standalone",
         icons: [
-          {
-            "src": appIcon,
-            "sizes": "32x32",
-            "type": "image/svg+xml"
-          },
-        ]
-      };
+            {
+                "src": "https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png",
+                "sizes": "32x32",
+                "type": "image/svg+xml"
+            }
+        ],
+        "background_color": "white"
+    };
 
       console.log('manifestData: ',manifestData);
       
