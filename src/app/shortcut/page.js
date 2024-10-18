@@ -35,10 +35,7 @@ const ShortCut = () => {
     <ShortCutHeader></ShortCutHeader>
     <Suspense>
       <ShortCutController></ShortCutController>
-
     </Suspense>
-
-    {/* <AddToHomeScreenButton/> */}
   </>
 }
 
