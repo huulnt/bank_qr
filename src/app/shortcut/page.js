@@ -5,7 +5,7 @@ import ShortCutHeader from './component/ShortCutHeader';
 import ShortCutController from './component/ShortCutController';
 
 
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
 
 
@@ -29,6 +29,7 @@ export const metadata = {
 };
 
 const ShortCut = () => {
+
 
 
   return <>

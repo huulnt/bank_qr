@@ -1,20 +1,23 @@
 "use client";
 
 import { Button } from 'antd';
-import Head from 'next/head';
 import { useSearchParams } from 'next/navigation';
 
+import manifest from '/public/manifest.json'
+
 import { useCallback, useEffect, useState } from 'react';
+import { icons } from 'antd/es/image/PreviewGroup';
 
 
 const ShortCutController = () => {
 
   const searchParams = useSearchParams();
 
+  console.log('searchParams: ', searchParams);
   const appName = searchParams.get('app_name');
   const appIcon = searchParams.get('app_icon');
   const redirectUrl = searchParams.get('redirect_url');
-
+  const storeCode = searchParams.toString();
 
   const [deferredPrompt, setDeferredPrompt] = useState(null)
 
@@ -61,12 +64,37 @@ const ShortCutController = () => {
   }, [handleBeforeInstallPrompt])
 
 
+  useEffect(() => {
+    console.log('storeCode: ', storeCode);
+
+    if (storeCode) {
+      const manifestElement = document.getElementById("manifest");
+      const manifestString = JSON.stringify({
+        ...manifest,
+        start_url: `/shortcut?${storeCode}`,
+        appName,
+        icons: [
+          {
+            "src": appIcon,
+            "sizes": "any",
+            "type": "image/png"
+          },
+        ]
+      });
+      manifestElement?.setAttribute(
+        "href",
+        "data:application/json;charset=utf-8," + encodeURIComponent(manifestString),
+      );
+    }
+  }, [appIcon, appName, storeCode]);
+
+
   return (
-      <div className={"flex align-center justify-center"}>
-        <Button onClick={handleAddToHomeScreenClick}>
+    <div className={"flex align-center justify-center"}>
+      <Button onClick={handleAddToHomeScreenClick}>
         Add to Home Screen
       </Button>
-      </div>
+    </div>
   )
 }
 
