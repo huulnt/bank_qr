@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useSearchParams } from 'next/navigation';
 
 import { useEffect } from 'react';
-
+import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 
 const ShortCutController = () => {
 
@@ -44,7 +44,7 @@ const ShortCutController = () => {
     <Head>
       <link rel="manifest" id="manifest-placeholder"></link>
     </Head>
-  
+    <AddToHomeScreen />
   </>
 }
 

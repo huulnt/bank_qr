@@ -6,7 +6,7 @@ import ShortCutController from './component/ShortCutController';
 
 
 import { Suspense } from 'react'
-import AddToHomeScreenButton from './component/AddHomeScreenButton';
+
 
 
 
@@ -29,13 +29,13 @@ const ShortCut = () => {
 
   return <>
     
-    {/* <ShortCutHeader></ShortCutHeader> */}
-    {/* <Suspense> */}
-      {/* <ShortCutController></ShortCutController> */}
+    <ShortCutHeader></ShortCutHeader>
+    <Suspense>
+      <ShortCutController></ShortCutController>
      
-    {/* </Suspense> */}
+    </Suspense>
 
-    <AddToHomeScreenButton/>
+    {/* <AddToHomeScreenButton/> */}
   </>
 }
 
