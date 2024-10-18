@@ -64,13 +64,6 @@ const TableComponent = () => {
     setSource(search);
   }
 
-  
-  console.log({
-    POSTGRES_URL: process.env.POSTGRES_URL,
-    POSTGRES_URL_NON_POOLING: process.env.POSTGRES_URL_NON_POOLING
-});
-
-
   return <div className="flex justify-center flex-col items-center  w-full">
      <div className="mb-4 w-1/2">
       <Input placeholder="Tìm kiếm" size="large" onChange={(data) => {

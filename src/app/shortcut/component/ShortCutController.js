@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const ShortCutController = () => {
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
  
   const appName = searchParams.get('app_name');
   const appIcon = searchParams.get('app_icon');
