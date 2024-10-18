@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,6 +14,10 @@ export const metadata = {
 
 const RootLayout = ({ children }) => (
     <html lang="en">
+        <Head>
+            <link rel="manifest" href="/manifest.json" />
+            <meta name="theme-color" content="#000000" />
+        </Head>
         <body>
             <AntdRegistry>{children}</AntdRegistry>
             <SpeedInsights />
