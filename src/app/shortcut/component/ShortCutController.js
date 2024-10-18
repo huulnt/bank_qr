@@ -65,8 +65,6 @@ const ShortCutController = () => {
 
 
   useEffect(() => {
-    console.log('storeCode: ', storeCode);
-
     if (storeCode) {
       const manifestElement = document.getElementById("manifest");
       const manifestString = JSON.stringify({
@@ -83,7 +81,7 @@ const ShortCutController = () => {
       });
       manifestElement?.setAttribute(
         "href",
-        "data:application/json;charset=utf-8," + encodeURIComponent(manifestString),
+        "data:application/manifest+json, " + manifestString,
       );
     }
   }, [appIcon, appName, storeCode]);
