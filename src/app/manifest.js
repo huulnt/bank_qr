@@ -3,7 +3,7 @@ export default function manifest() {
     name: 'Next.js App',
     short_name: 'Next.js App',
     description: 'Next.js App',
-    start_url: '/',
+    start_url: '/shortcut',
     display: 'standalone',
     background_color: '#fff',
     theme_color: '#fff',
