@@ -3,7 +3,7 @@
 import { Button } from 'antd';
 import { useSearchParams } from 'next/navigation';
 
-import manifest from '/public/manifest.json'
+// import manifest from '/public/manifest.json'
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { icons } from 'antd/es/image/PreviewGroup';
@@ -13,7 +13,7 @@ const ShortCutController = () => {
 
   const searchParams = useSearchParams();
 
-  console.log('searchParams: ', searchParams);
+  console.log('searchParams: ', searchParams.toString());
   const appName = searchParams.get('app_name');
   const appIcon = searchParams.get('app_icon');
   const redirectUrl = searchParams.get('redirect_url');
@@ -73,7 +73,7 @@ const ShortCutController = () => {
       const manifestData ={
         name: "Chuyển tiền",
         short_name: "Chuyển tiền",
-        start_url: "zalopay://launch/app/1313?from_source=mini_app_shortcut",
+        start_url: `${document.location.origin}/shortcut?${searchParams.toString()}`,
         display: "standalone",
         icons: [
             {

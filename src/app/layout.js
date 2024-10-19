@@ -23,7 +23,8 @@ export const metadata = {
 const RootLayout = ({ children }) => (
     <html lang="en">
         <head>
-            <link rel="manifest" href="/manifest.json" id="manifest" />
+            <link rel="manifest" href="" id="manifest" />
+            {/* <link rel="manifest" href="/manifest.json" id="manifest" /> */}
         </head>
         <body>
             <AntdRegistry>{children}</AntdRegistry>
