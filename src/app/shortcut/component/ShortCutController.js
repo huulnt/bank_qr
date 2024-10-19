@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { icons } from 'antd/es/image/PreviewGroup';
+import { isObject } from 'lodash';
 
 
 const ShortCutController = () => {
@@ -80,11 +81,18 @@ const ShortCutController = () => {
       console.log(
         "To add this web app to your Home Screen, open this app in Safari and tap the Share button, then select 'Add to Home Screen'."
       )
-      document.location.href = "plus://plus.vn/ScanQr/open"
+      document.location.href = "https://plus://plus.vn/ScanQr/open"
     } else {
       console.log("Install prompt is not available")
     }
   }
+
+  useEffect(() => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    if (isObject) {
+        document.location.href = "https://plus://plus.vn/ScanQr/open"
+    }
+  })
 
   useEffect(() => {
     document.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
