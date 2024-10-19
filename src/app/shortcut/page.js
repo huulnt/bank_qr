@@ -4,12 +4,7 @@ import Head from 'next/head';
 import ShortCutHeader from './component/ShortCutHeader';
 import ShortCutController from './component/ShortCutController';
 
-
-import { Suspense } from 'react';
-
-
-
-
+// import { Suspense } from 'react';
 
 export const metadata = {
   title: "Tìm điểm chấp nhận thẻ VIB",
@@ -34,9 +29,11 @@ const ShortCut = () => {
 
   return <>
     <ShortCutHeader></ShortCutHeader>
-    <Suspense>
+    {/* <Suspense>
       <ShortCutController></ShortCutController>
-    </Suspense>
+    </Suspense> */}
+      <ShortCutController></ShortCutController>
+
   </>
 }
 

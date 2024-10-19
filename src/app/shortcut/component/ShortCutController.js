@@ -23,6 +23,37 @@ const ShortCutController = () => {
 
   const [deferredPrompt, setDeferredPrompt] = useState(null)
 
+  useEffect(() => {
+    if (storeCode && !isInit.current) {
+      isInit.current = true;
+      const manifestElement = document.getElementById("manifest");
+      const manifestData ={
+        name: "Chuyển tiền",
+        short_name: "Chuyển tiền",
+        start_url: `${document.location.origin}/shortcut?${searchParams.toString()}`,
+        display: "standalone",
+        icons: [
+            {
+                "src": "https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png",
+                "sizes": "32x32",
+                "type": "image/svg+xml"
+            }
+        ],
+        "background_color": "white"
+    };
+
+      console.log('manifestData: ',manifestData);
+      
+
+      const manifestString = JSON.stringify(manifestData);
+      const url = 'data:application/manifest+json, ' + manifestString;
+      manifestElement?.setAttribute(
+        "href",
+        url
+      );
+    }
+  }, [appIcon, appName, searchParams, storeCode]);
+
   const handleBeforeInstallPrompt = useCallback((e) => {
     // Prevent the mini-infobar from appearing on mobile
     e.preventDefault()
@@ -66,36 +97,7 @@ const ShortCutController = () => {
   }, [handleBeforeInstallPrompt])
 
 
-  useEffect(() => {
-    if (storeCode && !isInit.current) {
-      isInit.current = true;
-      const manifestElement = document.getElementById("manifest");
-      const manifestData ={
-        name: "Chuyển tiền",
-        short_name: "Chuyển tiền",
-        start_url: `${document.location.origin}/shortcut?${searchParams.toString()}`,
-        display: "standalone",
-        icons: [
-            {
-                "src": "https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png",
-                "sizes": "32x32",
-                "type": "image/svg+xml"
-            }
-        ],
-        "background_color": "white"
-    };
-
-      console.log('manifestData: ',manifestData);
-      
-
-      const manifestString = JSON.stringify(manifestData);
-      const url = 'data:application/manifest+json,' + manifestString;
-      manifestElement?.setAttribute(
-        "href",
-        url
-      );
-    }
-  }, [appIcon, appName, storeCode]);
+  
 
 
   return (

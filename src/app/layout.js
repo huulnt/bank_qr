@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
+import Head from "next/head";
+
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
