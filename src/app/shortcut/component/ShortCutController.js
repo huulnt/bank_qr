@@ -24,7 +24,7 @@ const ShortCutController = () => {
   //   const timeout = setTimeout(() => {
   //     const manifestElement = document.getElementById("manifest");
   //     const manifestData = {
-       
+
   //       name: "Chuyển tiền",
   //       short_name: "Chuyển tiền",
   //       start_url: `${document.location.href}`,
@@ -104,7 +104,11 @@ const ShortCutController = () => {
 
 
 
-  handleAddToHomeScreenClick();
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      handleAddToHomeScreenClick();
+    }
+  });
 
   return (
     <div className={"flex align-center justify-center"}>
