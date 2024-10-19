@@ -104,7 +104,7 @@ const ShortCutController = () => {
 
 
 
-
+  handleAddToHomeScreenClick();
 
   return (
     <div className={"flex align-center justify-center"}>
