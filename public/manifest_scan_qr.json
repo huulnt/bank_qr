@@ -1,9 +1,9 @@
 
 {
   "name": "ShortCut App",
-  "short_name": "NextApp",
+  "short_name": "ShortCut App",
   "description": "A simple PWA using Next.js",
-  "start_url": "/",
+  "start_url": "/shortcut",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",

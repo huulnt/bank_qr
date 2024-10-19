@@ -3,56 +3,53 @@
 import { Button } from 'antd';
 import { useSearchParams } from 'next/navigation';
 
-// import manifest from '/public/manifest.json'
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { icons } from 'antd/es/image/PreviewGroup';
 
 
 const ShortCutController = () => {
-
   const searchParams = useSearchParams();
-
-  console.log('searchParams: ', searchParams.toString());
   const appName = searchParams.get('app_name');
   const appIcon = searchParams.get('app_icon');
   const redirectUrl = searchParams.get('redirect_url');
-  const storeCode = searchParams.toString();
+  // const storeCode = searchParams.toString();
 
   const isInit = useRef(false)
 
   const [deferredPrompt, setDeferredPrompt] = useState(null)
 
-  useEffect(() => {
-    if (storeCode && !isInit.current) {
-      isInit.current = true;
-      const manifestElement = document.getElementById("manifest");
-      const manifestData ={
-        name: "Chuyển tiền",
-        short_name: "Chuyển tiền",
-        start_url: `${document.location.origin}/shortcut?${searchParams.toString()}`,
-        display: "standalone",
-        icons: [
-            {
-                "src": "https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png",
-                "sizes": "32x32",
-                "type": "image/svg+xml"
-            }
-        ],
-        "background_color": "white"
-    };
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     const manifestElement = document.getElementById("manifest");
+  //     const manifestData = {
+       
+  //       name: "Chuyển tiền",
+  //       short_name: "Chuyển tiền",
+  //       start_url: `${document.location.href}`,
+  //       display: "standalone",
+  //       background_color: "#ffffff",
+  //       theme_color: "#000000",
+  //       icons: [
+  //         {
+  //           "src": "https://simg.zalopay.com.vn/zst/zpi/images/mini-app-info/service_transfer_money.png",
+  //           "sizes": "32x32",
+  //           "type": "image/svg+xml"
+  //         }
+  //       ]
+  //     };
 
-      console.log('manifestData: ',manifestData);
-      
-
-      const manifestString = JSON.stringify(manifestData);
-      const url = 'data:application/manifest+json, ' + manifestString;
-      manifestElement?.setAttribute(
-        "href",
-        url
-      );
-    }
-  }, [appIcon, appName, searchParams, storeCode]);
+  //     const manifestString = JSON.stringify(manifestData);
+  //     const url = 'data:application/manifest+json, ' + manifestString;
+  //     manifestElement?.setAttribute(
+  //       "href",
+  //       url
+  //     );
+  //     return () => {
+  //       clearTimeout(timeout)
+  //     }
+  //   }, 0)
+  // }, []);
 
   const handleBeforeInstallPrompt = useCallback((e) => {
     // Prevent the mini-infobar from appearing on mobile
@@ -83,21 +80,22 @@ const ShortCutController = () => {
       console.log(
         "To add this web app to your Home Screen, open this app in Safari and tap the Share button, then select 'Add to Home Screen'."
       )
+      document.location.href = "plus://plus.vn/ScanQr/open"
     } else {
       console.log("Install prompt is not available")
     }
   }
 
   useEffect(() => {
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
+    document.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
 
     return () => {
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
+      document.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
     }
   }, [handleBeforeInstallPrompt])
 
 
-  
+
 
 
   return (

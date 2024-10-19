@@ -24,8 +24,11 @@ export const metadata = {
 const RootLayout = ({ children }) => (
     <html lang="en">
         <head>
-            <link rel="manifest" href="" id="manifest" />
+            <meta charSet="utf-8" />
+            {/* <link rel="manifest" href="" id="manifest" /> */}
             {/* <link rel="manifest" href="/manifest.json" id="manifest" /> */}
+
+            {/* <link rel="manifest" id="my-manifest-placeholder"></link> */}
         </head>
         <body>
             <AntdRegistry>{children}</AntdRegistry>
