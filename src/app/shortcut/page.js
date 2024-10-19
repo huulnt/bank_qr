@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import ShortCutHeader from './component/ShortCutHeader';
 import ShortCutController from './component/ShortCutController';
+import { Suspense } from 'react';
 
 // import { Suspense } from 'react';
 
@@ -29,10 +30,10 @@ const ShortCut = () => {
 
   return <>
     <ShortCutHeader></ShortCutHeader>
-    {/* <Suspense>
+    <Suspense>
       <ShortCutController></ShortCutController>
-    </Suspense> */}
-      <ShortCutController></ShortCutController>
+    </Suspense>
+      {/* <ShortCutController></ShortCutController> */}
 
   </>
 }
