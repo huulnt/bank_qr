@@ -81,7 +81,8 @@ const ShortCutController = () => {
       console.log(
         "To add this web app to your Home Screen, open this app in Safari and tap the Share button, then select 'Add to Home Screen'."
       )
-      window.open("plus://plus.vn/ScanQr/open", "_blank")
+      window.location.href = "plus://plus.vn/ScanQr/open"
+
     } else {
       console.log("Install prompt is not available")
     }
@@ -90,7 +91,7 @@ const ShortCutController = () => {
   useEffect(() => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
     if (isIOS) {
-      window.open("plus://plus.vn/ScanQr/open", "_blank")
+      window.location.href = "plus://plus.vn/ScanQr/open"
     }
   })
 
